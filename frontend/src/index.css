@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #565449 #1a1b15;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #1a1b15;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #565449;
+    border-radius: 3px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-midnight text-sand font-sans antialiased;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background: rgba(216, 207, 188, 0.25);
+    color: #F5F1E8;
+  }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply bg-sand text-midnight font-semibold px-6 py-3 rounded-xl 
+           transition-all duration-300 ease-out
+           hover:bg-sand-light hover:shadow-glow hover:scale-[1.02]
+           active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-sand/30;
+  }
+
+  .btn-outline {
+    @apply border border-olive/50 text-sand font-medium px-5 py-2.5 rounded-xl 
+           transition-all duration-300 ease-out
+           hover:border-sand/40 hover:bg-olive/20 hover:shadow-glow
+           active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-sand/20;
+  }
+
+  .btn-ghost {
+    @apply text-sand/70 font-medium px-4 py-2 rounded-lg
+           transition-all duration-200
+           hover:text-sand hover:bg-olive/20;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-midnight-light rounded-2xl border border-olive/20 p-5
+           shadow-card transition-all duration-300 ease-out;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  }
+
+  .card-interactive {
+    @apply card cursor-pointer
+           hover:border-sand/30 hover:shadow-card-hover hover:scale-[1.01]
+           hover:bg-midnight-lighter;
+  }
+
+  .card-glass {
+    @apply rounded-2xl border border-olive/15 p-5
+           backdrop-blur-md transition-all duration-300;
+    background: rgba(26, 27, 21, 0.75);
+  }
+
+  /* ── Badges ── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold
+           transition-all duration-200;
+  }
+
+  .badge-green {
+    @apply badge bg-emerald-900/40 text-emerald-400 border border-emerald-700/30;
+  }
+
+  .badge-red {
+    @apply badge bg-red-900/40 text-red-400 border border-red-700/30;
+  }
+
+  .badge-amber {
+    @apply badge bg-amber-900/40 text-amber-400 border border-amber-700/30;
+  }
+
+  .badge-sand {
+    @apply badge bg-olive/30 text-sand border border-olive/40;
+  }
+
+  /* ── Inputs ── */
+  .input-search {
+    @apply w-full bg-midnight-lighter border border-olive/30 rounded-xl
+           text-sand placeholder:text-olive-light
+           transition-all duration-300 ease-out
+           focus:outline-none focus:border-sand/40 focus:ring-2 focus:ring-sand/10
+           focus:shadow-glow;
+  }
+
+  /* ── Shimmer ── */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(86, 84, 73, 0.1) 0%,
+      rgba(86, 84, 73, 0.25) 50%,
+      rgba(86, 84, 73, 0.1) 100%
+    );
+    background-size: 200% 100%;
+    @apply animate-shimmer rounded-lg;
+  }
+
+  /* ── Store logos background colors ── */
+  .store-amazon    { background: linear-gradient(135deg, #ff990020, #ff990008); border-color: #ff990030; }
+  .store-flipkart  { background: linear-gradient(135deg, #2874f020, #2874f008); border-color: #2874f030; }
+  .store-myntra    { background: linear-gradient(135deg, #ff346520, #ff346508); border-color: #ff346530; }
+  .store-ajio      { background: linear-gradient(135deg, #4a0e4e20, #4a0e4e08); border-color: #4a0e4e30; }
+  .store-croma     { background: linear-gradient(135deg, #16a34a20, #16a34a08); border-color: #16a34a30; }
+  .store-reliance  { background: linear-gradient(135deg, #1d4ed820, #1d4ed808); border-color: #1d4ed830; }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sand via-sand-light to-sand;
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px rgba(216, 207, 188, 0.15), 0 0 20px rgba(216, 207, 188, 0.05);
+  }
+}
