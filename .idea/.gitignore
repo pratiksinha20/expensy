@@ -9,5 +9,3 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 
-target/
-application.properties
